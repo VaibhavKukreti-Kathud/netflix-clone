@@ -32,8 +32,13 @@ const Auth = () => {
                 password,
                 redirect: false,
                 callbackUrl: '/'
-            });
-            router.push('/');
+            }).then((res) => {
+                if (res?.ok) {
+                    router.push('/');
+                }
+            }
+            );
+
         } catch (error) {
             console.log(error);
         }
