@@ -65,7 +65,7 @@ const Auth = () => {
                     <img src="/images/logo.png" alt="logo" className="h-12"></img>
                 </nav>
                 <div className="flex justify-center">
-                    <div className="bg-black px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full h-full">
+                    <div className="bg-blue px-16 py-16 self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full h-full">
                         <h2 className="text-white text-4xl mb-8 font-semibold">
                             {variant === 'login' ? 'Sign in' : 'Register'}
                         </h2>
