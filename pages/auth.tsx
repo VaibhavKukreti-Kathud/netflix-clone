@@ -1,7 +1,7 @@
 import Input from "@/components/input";
 import { useState, useCallback } from "react";
 import axios from "axios";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
