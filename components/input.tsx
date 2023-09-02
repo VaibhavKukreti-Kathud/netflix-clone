@@ -1,4 +1,5 @@
-import React from 'react';   
+import React from 'react';  
+import { FaAirbnb } from 'react-icons/fa'; 
 
 interface InputProps {
     id: string;
@@ -19,6 +20,7 @@ const Input:React.FC<InputProps> = ({
         <div className="relative">
             <input
                 id={id}
+                minLength={6}
                 type={type}
                 value={value}
                 onChange={onChange}
@@ -32,7 +34,10 @@ const Input:React.FC<InputProps> = ({
                     text-md
                     h-14
                     text-white
-                    bg-neutral-700
+                    bg-white/[0.1]
+                    focus:bg-white/[0.2]
+                    duration-150
+                    ease-out
                     appearance-none
                     focus:outline-none
                     focus:ring-0
@@ -43,7 +48,7 @@ const Input:React.FC<InputProps> = ({
             className="
             absolute
             text-md
-            text-zinc-400
+            text-white/[0.5]
             duration-150
             transform
             -translate-y-3

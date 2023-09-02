@@ -9,10 +9,12 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { compare } from 'bcrypt';
 
 import prismadb from '@/lib/prismadb';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
 
 
-export const authOptions: AuthOptions = {
+const authOptions: AuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID || '',
@@ -33,7 +35,7 @@ export const authOptions: AuthOptions = {
         password: {
           label: 'Password',
           type: 'passord'
-        }
+        } 
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -72,4 +74,7 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET
 };
 
-export default NextAuth(authOptions);
+const authHandler = NextAuth(authOptions);
+export default async function handler(...params: any[]) {
+  await authHandler(...params);
+}
