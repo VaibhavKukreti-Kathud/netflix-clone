@@ -20,7 +20,8 @@ export async function getServerSideProps(context: NextPageContext) {
 
 export default function Home() {
   
-  const {data: user} = useCurrentUser();
+  const { user} = useCurrentUser();
+  
   return (
     <div>
       <h1 className="text-2xl text-white">

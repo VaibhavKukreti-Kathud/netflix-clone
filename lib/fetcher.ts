@@ -1,9 +1,7 @@
-import axios from 'axios';
-
-const fetcher = async (url: string) => {
-    const res = await axios.get(url);
-    console.log("here");
-    return res.data;
-};
-
-export default fetcher;
+export default async function fetcher<JSON = any>(
+    input: RequestInfo,
+    init?: RequestInit
+  ): Promise<JSON> {
+    const res = await fetch(input, init);
+    return res.json();
+  }
