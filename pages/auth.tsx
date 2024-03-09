@@ -67,8 +67,8 @@ const Auth = () => {
                 bg-white
                 bg-opacity-10
                 rounded-2xl w-1/3
-                border-2
-                border-white/[.15]
+                border-[1px]
+                border-gray-800
                 focus-within:shadow-xl
                 ">
                 
@@ -103,8 +103,7 @@ const Auth = () => {
                         
                         <button
                             onClick={variant === "login" ? login : register}
-                            className="
-                    bg-red-600/[0.9] py-3 px-6 rounded-md text-white mt-10 w-full hover:bg-red-600 hover:shadow-xl transition duration-200 ease-out"
+                            className="bg-red-600/[0.9] py-3 px-6 rounded-md text-white mt-10 w-full hover:bg-red-600 hover:shadow-xl transition duration-200 ease-out"
                         >{variant === "login" ? "Login" : "Create account"}</button>
                         <p className="text-white/[0.4] mt-6 text-sm">
                             {variant === "login" ? "First time using netflix?" : "Already have an account?"}

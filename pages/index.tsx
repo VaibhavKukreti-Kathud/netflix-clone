@@ -1,7 +1,7 @@
 import { NextPageContext } from "next";
-import {  getSession,signOut} from "next-auth/react";
-import Image from 'next/image';
-import useCurrentUser from "@/hooks/useCurrentUser";
+import {  getSession,signOut, useSession} from "next-auth/react";
+import { use } from "react";
+
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -19,13 +19,14 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
-  
-  const { user} = useCurrentUser();
+
+  const session = useSession();
+  const user = session?.data?.user;
   
   return (
     <div>
       <h1 className="text-2xl text-white">
-        Signed in as {user?.email}
+        Welcome {user?.name}!
       </h1>
       <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded" onClick={() => signOut(
         {callbackUrl: "/auth"}
